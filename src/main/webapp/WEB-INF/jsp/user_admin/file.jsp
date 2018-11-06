@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>小老弟..上传你的文件</h1>
-	<form method="post" action="/user/doUpload" enctype="multipart/form-data">
+	<h1>上传文件</h1>
+	<form method="post" action="/corey/doUpload" enctype="multipart/form-data">
 		<input type="file" name="file"/>
 		<input type="submit" value="上传文件"/>
 		
