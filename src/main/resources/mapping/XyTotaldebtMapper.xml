@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itcorey.dao.XyTotaldebtMapper" >
+  <resultMap id="BaseResultMap" type="com.itcorey.model.XyTotaldebt" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="desc" property="desc" jdbcType="VARCHAR" />
+    <result column="trans_id" property="transId" jdbcType="VARCHAR" />
+    <result column="trade_no" property="tradeNo" jdbcType="VARCHAR" />
+    <result column="fee" property="fee" jdbcType="VARCHAR" />
+    <result column="current_org_count" property="currentOrgCount" jdbcType="VARCHAR" />
+    <result column="current_order_count" property="currentOrderCount" jdbcType="VARCHAR" />
+    <result column="current_order_amt" property="currentOrderAmt" jdbcType="VARCHAR" />
+    <result column="current_order_lend_amt" property="currentOrderLendAmt" jdbcType="VARCHAR" />
+    <result column="totaldebt_date" property="totaldebtDate" jdbcType="VARCHAR" />
+    <result column="totaldebt_org_count" property="totaldebtOrgCount" jdbcType="VARCHAR" />
+    <result column="totaldebt_order_count" property="totaldebtOrderCount" jdbcType="VARCHAR" />
+    <result column="totaldebt_order_amt" property="totaldebtOrderAmt" jdbcType="VARCHAR" />
+    <result column="new_or_old" property="newOrOld" jdbcType="VARCHAR" />
+    <result column="totaldebt_order_lend_amt" property="totaldebtOrderLendAmt" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, code, desc, trans_id, trade_no, fee, current_org_count, current_order_count, 
+    current_order_amt, current_order_lend_amt, totaldebt_date, totaldebt_org_count, totaldebt_order_count, 
+    totaldebt_order_amt, new_or_old, totaldebt_order_lend_amt, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from cl_xy_totaldebt
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from cl_xy_totaldebt
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.itcorey.model.XyTotaldebt" >
+    insert into cl_xy_totaldebt (id, user_id, code, 
+      desc, trans_id, trade_no, 
+      fee, current_org_count, current_order_count, 
+      current_order_amt, current_order_lend_amt, totaldebt_date, 
+      totaldebt_org_count, totaldebt_order_count, 
+      totaldebt_order_amt, new_or_old, totaldebt_order_lend_amt, 
+      create_time)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, 
+      #{desc,jdbcType=VARCHAR}, #{transId,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, 
+      #{fee,jdbcType=VARCHAR}, #{currentOrgCount,jdbcType=VARCHAR}, #{currentOrderCount,jdbcType=VARCHAR}, 
+      #{currentOrderAmt,jdbcType=VARCHAR}, #{currentOrderLendAmt,jdbcType=VARCHAR}, #{totaldebtDate,jdbcType=VARCHAR}, 
+      #{totaldebtOrgCount,jdbcType=VARCHAR}, #{totaldebtOrderCount,jdbcType=VARCHAR}, 
+      #{totaldebtOrderAmt,jdbcType=VARCHAR}, #{newOrOld,jdbcType=VARCHAR}, #{totaldebtOrderLendAmt,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itcorey.model.XyTotaldebt" >
+    insert into cl_xy_totaldebt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="desc != null" >
+        desc,
+      </if>
+      <if test="transId != null" >
+        trans_id,
+      </if>
+      <if test="tradeNo != null" >
+        trade_no,
+      </if>
+      <if test="fee != null" >
+        fee,
+      </if>
+      <if test="currentOrgCount != null" >
+        current_org_count,
+      </if>
+      <if test="currentOrderCount != null" >
+        current_order_count,
+      </if>
+      <if test="currentOrderAmt != null" >
+        current_order_amt,
+      </if>
+      <if test="currentOrderLendAmt != null" >
+        current_order_lend_amt,
+      </if>
+      <if test="totaldebtDate != null" >
+        totaldebt_date,
+      </if>
+      <if test="totaldebtOrgCount != null" >
+        totaldebt_org_count,
+      </if>
+      <if test="totaldebtOrderCount != null" >
+        totaldebt_order_count,
+      </if>
+      <if test="totaldebtOrderAmt != null" >
+        totaldebt_order_amt,
+      </if>
+      <if test="newOrOld != null" >
+        new_or_old,
+      </if>
+      <if test="totaldebtOrderLendAmt != null" >
+        totaldebt_order_lend_amt,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null" >
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="transId != null" >
+        #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null" >
+        #{fee,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrgCount != null" >
+        #{currentOrgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrderCount != null" >
+        #{currentOrderCount,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrderAmt != null" >
+        #{currentOrderAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrderLendAmt != null" >
+        #{currentOrderLendAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtDate != null" >
+        #{totaldebtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrgCount != null" >
+        #{totaldebtOrgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrderCount != null" >
+        #{totaldebtOrderCount,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrderAmt != null" >
+        #{totaldebtOrderAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="newOrOld != null" >
+        #{newOrOld,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrderLendAmt != null" >
+        #{totaldebtOrderLendAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itcorey.model.XyTotaldebt" >
+    update cl_xy_totaldebt
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null" >
+        desc = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="transId != null" >
+        trans_id = #{transId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null" >
+        trade_no = #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null" >
+        fee = #{fee,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrgCount != null" >
+        current_org_count = #{currentOrgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrderCount != null" >
+        current_order_count = #{currentOrderCount,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrderAmt != null" >
+        current_order_amt = #{currentOrderAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="currentOrderLendAmt != null" >
+        current_order_lend_amt = #{currentOrderLendAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtDate != null" >
+        totaldebt_date = #{totaldebtDate,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrgCount != null" >
+        totaldebt_org_count = #{totaldebtOrgCount,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrderCount != null" >
+        totaldebt_order_count = #{totaldebtOrderCount,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrderAmt != null" >
+        totaldebt_order_amt = #{totaldebtOrderAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="newOrOld != null" >
+        new_or_old = #{newOrOld,jdbcType=VARCHAR},
+      </if>
+      <if test="totaldebtOrderLendAmt != null" >
+        totaldebt_order_lend_amt = #{totaldebtOrderLendAmt,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itcorey.model.XyTotaldebt" >
+    update cl_xy_totaldebt
+    set user_id = #{userId,jdbcType=BIGINT},
+      code = #{code,jdbcType=VARCHAR},
+      desc = #{desc,jdbcType=VARCHAR},
+      trans_id = #{transId,jdbcType=VARCHAR},
+      trade_no = #{tradeNo,jdbcType=VARCHAR},
+      fee = #{fee,jdbcType=VARCHAR},
+      current_org_count = #{currentOrgCount,jdbcType=VARCHAR},
+      current_order_count = #{currentOrderCount,jdbcType=VARCHAR},
+      current_order_amt = #{currentOrderAmt,jdbcType=VARCHAR},
+      current_order_lend_amt = #{currentOrderLendAmt,jdbcType=VARCHAR},
+      totaldebt_date = #{totaldebtDate,jdbcType=VARCHAR},
+      totaldebt_org_count = #{totaldebtOrgCount,jdbcType=VARCHAR},
+      totaldebt_order_count = #{totaldebtOrderCount,jdbcType=VARCHAR},
+      totaldebt_order_amt = #{totaldebtOrderAmt,jdbcType=VARCHAR},
+      new_or_old = #{newOrOld,jdbcType=VARCHAR},
+      totaldebt_order_lend_amt = #{totaldebtOrderLendAmt,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
