@@ -3,6 +3,10 @@ package com.itcorey.utils;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.parser.Feature;
+import com.itcorey.dao.XyTotaldebtMapper;
+import com.itcorey.model.XyTotaldebt;
+
+import java.util.List;
 
 /**
  * Created by ：Corey
@@ -12,6 +16,7 @@ import com.alibaba.fastjson.parser.Feature;
 public class jsonAnalysis {
 
     public static void main(String[] args) {
+        //language=JSON
         String json = "{\n" +
                 "  \"success\": true,\n" +
                 "  \"data\": {\n" +
@@ -54,9 +59,7 @@ public class jsonAnalysis {
         JsonRootBean thirdJson = JSONObject.parseObject(json, new TypeReference<JsonRootBean>() {
         });
 
-        JsonRootBean jsonRootBean = JSONObject.parseObject(json, JsonRootBean.class);
 
-        System.out.println(thirdJson);
 
     }
 

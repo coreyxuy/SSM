@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.itcorey.Service.IUserService;
 import com.itcorey.dao.XyTotaldebtMapper;
+import com.itcorey.model.Totaldebt_detail;
 import com.itcorey.model.User;
+import com.itcorey.model.XyTotaldebt;
 import com.itcorey.utils.JsonRootBean;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -12,6 +14,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -113,10 +117,25 @@ public class AppTest {
                 "}";
 
         JsonRootBean thirdJson = JSONObject.parseObject(json, new TypeReference<JsonRootBean>() {});
-
-
-
+        XyTotaldebt xyTotaldebt = new XyTotaldebt();
+        xyTotaldebt.setCode(thirdJson.getData().getCode());
+        xyTotaldebt.setDesc(thirdJson.getData().getDesc());
+        xyTotaldebt.setTransId(thirdJson.getData().getTrans_id());
+        xyTotaldebt.setTradeNo(thirdJson.getData().getTrade_no());
+        xyTotaldebt.setFee(thirdJson.getData().getFee());
+        if ("0".equals(thirdJson.getData().getCode())){
+            xyTotaldebt.setCurrentOrderCount(thirdJson.getData().getResult_detail().getCurrent_order_count());
+            xyTotaldebt.setCurrentOrgCount(thirdJson.getData().getResult_detail().getCurrent_org_count());
+            List<Totaldebt_detail> totaldebt_detail = thirdJson.getData().getResult_detail().getTotaldebt_detail();
+            for (Totaldebt_detail totaldebtDetail : totaldebt_detail) {
+                xyTotaldebt.setNewOrOld(totaldebtDetail.getNew_or_old());
+                xyTotaldebt.setTotaldebtOrderCount(totaldebtDetail.getTotaldebt_order_count());
+            }
+        }
+      xyTotaldebtMapper.insert(xyTotaldebt);
+        System.out.println("success");
     }
+
 
 
 

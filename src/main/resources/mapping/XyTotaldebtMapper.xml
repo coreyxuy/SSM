@@ -38,7 +38,7 @@
   </delete>
   <insert id="insert" parameterType="com.itcorey.model.XyTotaldebt" >
     insert into cl_xy_totaldebt (id, user_id, code, 
-      desc, trans_id, trade_no, 
+      `desc`, trans_id, trade_no,
       fee, current_org_count, current_order_count, 
       current_order_amt, current_order_lend_amt, totaldebt_date, 
       totaldebt_org_count, totaldebt_order_count, 
