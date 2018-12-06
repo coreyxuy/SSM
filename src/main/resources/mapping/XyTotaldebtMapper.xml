@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itcorey.dao.XyTotaldebtMapper" >
-  <resultMap id="BaseResultMap" type="com.itcorey.model.XyTotaldebt" >
+  <resultMap id="BaseResultMap" type="com.itcorey.domain.XyTotaldebt" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="code" property="code" jdbcType="VARCHAR" />
@@ -36,7 +36,7 @@
     delete from cl_xy_totaldebt
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.itcorey.model.XyTotaldebt" >
+  <insert id="insert" parameterType="com.itcorey.domain.XyTotaldebt" >
     insert into cl_xy_totaldebt (id, user_id, code, 
       `desc`, trans_id, trade_no,
       fee, current_org_count, current_order_count, 
@@ -52,7 +52,7 @@
       #{totaldebtOrderAmt,jdbcType=VARCHAR}, #{newOrOld,jdbcType=VARCHAR}, #{totaldebtOrderLendAmt,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.itcorey.model.XyTotaldebt" >
+  <insert id="insertSelective" parameterType="com.itcorey.domain.XyTotaldebt" >
     insert into cl_xy_totaldebt
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -167,7 +167,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.itcorey.model.XyTotaldebt" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.itcorey.domain.XyTotaldebt" >
     update cl_xy_totaldebt
     <set >
       <if test="userId != null" >
@@ -224,7 +224,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.itcorey.model.XyTotaldebt" >
+  <update id="updateByPrimaryKey" parameterType="com.itcorey.domain.XyTotaldebt" >
     update cl_xy_totaldebt
     set user_id = #{userId,jdbcType=BIGINT},
       code = #{code,jdbcType=VARCHAR},

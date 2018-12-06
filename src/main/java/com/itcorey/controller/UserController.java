@@ -1,7 +1,7 @@
 package com.itcorey.controller;
 
 import com.itcorey.Service.IUserService;
-import com.itcorey.model.User;
+import com.itcorey.domain.User;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

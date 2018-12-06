@@ -1,8 +1,14 @@
-package com.itcorey.model;
+package com.itcorey.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class XyTotaldebt {
+
+/**
+ * 第三方数据类
+ */
+public class XyTotaldebt implements Serializable {
+    private static final long serialVersionUID = 2860710545517547595L;
     private Long id;
 
     private Long userId;

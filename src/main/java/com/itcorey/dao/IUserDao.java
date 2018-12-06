@@ -1,6 +1,6 @@
 package com.itcorey.dao;
 
-import com.itcorey.model.User;
+import com.itcorey.domain.User;
 import org.springframework.stereotype.Repository;
 
 /**

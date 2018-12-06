@@ -1,6 +1,6 @@
 package com.itcorey.Service;
 
-import com.itcorey.model.User;
+import com.itcorey.domain.User;
 
 /**
  * Created by ：Corey

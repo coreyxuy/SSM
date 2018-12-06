@@ -1,7 +1,7 @@
 package com.itcorey.dao;
 
 
-import com.itcorey.model.XyTotaldebt;
+import com.itcorey.domain.XyTotaldebt;
 import org.springframework.stereotype.Repository;
 
 @Repository

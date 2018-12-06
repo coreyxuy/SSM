@@ -2,7 +2,7 @@ package com.itcorey.Service.impl;
 
 import com.itcorey.Service.IUserService;
 import com.itcorey.dao.IUserDao;
-import com.itcorey.model.User;
+import com.itcorey.domain.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

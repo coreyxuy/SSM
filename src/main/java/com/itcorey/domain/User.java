@@ -1,11 +1,15 @@
-package com.itcorey.model;
+package com.itcorey.domain;
+
+import java.io.Serializable;
 
 /**
  * Created by ：Corey
  * 20:54 2018/11/5
+ * 用户实体类
  */
-public class User {
+public class User implements Serializable {
 
+    private static final long serialVersionUID = -6849931978500195373L;
     private Integer id;
     private String userName;
     private Integer password;

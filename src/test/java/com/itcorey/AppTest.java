@@ -3,10 +3,12 @@ package com.itcorey;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.itcorey.Service.IUserService;
+import com.itcorey.dao.MorUserMapper;
 import com.itcorey.dao.XyTotaldebtMapper;
+import com.itcorey.domain.MorUser;
 import com.itcorey.model.Totaldebt_detail;
-import com.itcorey.model.User;
-import com.itcorey.model.XyTotaldebt;
+import com.itcorey.domain.User;
+import com.itcorey.domain.XyTotaldebt;
 import com.itcorey.utils.JsonRootBean;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
@@ -32,6 +35,10 @@ public class AppTest {
     private IUserService userService;
     @Autowired
     private XyTotaldebtMapper xyTotaldebtMapper;
+    @Autowired
+    private MorUserMapper morUserMapper;
+
+
 
 
     /**
@@ -136,6 +143,20 @@ public class AppTest {
         System.out.println("success");
     }
 
+
+    @Test
+    public void getAllUser(){
+        List<MorUser> allUser = morUserMapper.getAllUser();
+        //获取开始时间
+        long startTime = System.currentTimeMillis();
+        allUser.stream().forEach(String ->{
+            System.out.println("=====>"+String);
+        });
+        //结束时间
+        long endTime = System.currentTimeMillis();
+        System.out.println("代码执行时间为"+(endTime-startTime)+"ms");
+
+    }
 
 
 
