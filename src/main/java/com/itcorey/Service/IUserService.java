@@ -2,6 +2,8 @@ package com.itcorey.Service;
 
 import com.itcorey.domain.User;
 
+import java.util.List;
+
 /**
  * Created by ：Corey
  * 20:54 2018/11/5
@@ -32,4 +34,11 @@ public interface IUserService {
      * @param userId
      */
     int delUser(int userId);
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    List<User> getAllUser();
+
 }

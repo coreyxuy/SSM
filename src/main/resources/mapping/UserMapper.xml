@@ -16,6 +16,7 @@
         from user_t
         where id = #{id,jdbcType=INTEGER}
     </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
         delete from user_t
         where id = #{id,jdbcType=INTEGER}
@@ -79,4 +80,10 @@
         age = #{age,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
+
+    <select id="getAllUser" resultType="com.itcorey.domain.User">
+        SELECT * FROM  cl_user
+
+    </select>
+
 </mapper>

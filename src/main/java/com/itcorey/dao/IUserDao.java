@@ -3,6 +3,8 @@ package com.itcorey.dao;
 import com.itcorey.domain.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by ：Corey
  * 20:54 2018/11/5
@@ -22,4 +24,6 @@ public interface IUserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> getAllUser();
 }
