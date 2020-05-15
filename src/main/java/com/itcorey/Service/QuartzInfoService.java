@@ -46,7 +46,7 @@ public interface QuartzInfoService{
 	
 	/**
 	 * 据任务标识查询任务
-	 * @param paramMap
+	 * @param code
 	 * @return
 	 */
 	QuartzInfo findByCode(String code);

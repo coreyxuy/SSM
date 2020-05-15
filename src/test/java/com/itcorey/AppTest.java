@@ -38,9 +38,6 @@ public class AppTest {
     @Autowired
     private MorUserMapper morUserMapper;
 
-
-
-
     /**
      * 查询用户信息
      */
@@ -157,14 +154,6 @@ public class AppTest {
         System.out.println("代码执行时间为"+(endTime-startTime)+"ms");
 
     }
-
-
-
-
-
-
-
-
 
 
     @Test

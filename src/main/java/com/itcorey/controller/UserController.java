@@ -101,18 +101,27 @@ public class UserController {
     }
 
 
-    //文件上传、
+    /**
+     * 文件上传
+     * @return
+     */
     @RequestMapping(value = "/upload")
     public String showUploadPage() {
         return "user_admin/file";
     }
 
+
+    /**
+     * @param file
+     * @returndoUploadFile
+     * @throws IOException
+     */
     @RequestMapping(value = "/doUpload", method = RequestMethod.POST)
     public String doUploadFile(@RequestParam("file") MultipartFile file) throws IOException {
         if (!file.isEmpty()) {
             log.info("Process file:{}", file.getOriginalFilename());
         }
-        FileUtils.copyInputStreamToFile(file.getInputStream(), new File("D:\\", System.currentTimeMillis() + file.getOriginalFilename()));
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File("D:\\", System.currentTimeMillis() + file.getOriginalFilename()));
         return "succes";
     }
 
