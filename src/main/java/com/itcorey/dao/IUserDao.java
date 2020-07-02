@@ -1,6 +1,7 @@
 package com.itcorey.dao;
 
 import com.itcorey.domain.User;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

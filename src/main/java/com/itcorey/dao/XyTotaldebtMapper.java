@@ -2,6 +2,7 @@ package com.itcorey.dao;
 
 
 import com.itcorey.domain.XyTotaldebt;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Repository;
 
 @Repository

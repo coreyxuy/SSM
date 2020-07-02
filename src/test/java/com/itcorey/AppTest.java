@@ -6,18 +6,18 @@ import com.itcorey.Service.IUserService;
 import com.itcorey.dao.MorUserMapper;
 import com.itcorey.dao.XyTotaldebtMapper;
 import com.itcorey.domain.MorUser;
-import com.itcorey.model.Totaldebt_detail;
 import com.itcorey.domain.User;
 import com.itcorey.domain.XyTotaldebt;
+import com.itcorey.model.Totaldebt_detail;
 import com.itcorey.utils.JsonRootBean;
-import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
@@ -30,7 +30,7 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class AppTest {
 
-    private static Logger logger = org.apache.log4j.Logger.getLogger(AppTest.class);
+    private static Logger logger = LoggerFactory.getLogger(AppTest.class);
     @Autowired
     private IUserService userService;
     @Autowired
